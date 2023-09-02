@@ -1,4 +1,4 @@
-# Pokimon Game App
+# My Portfolio
 Next.Js Project for Practice <br>
 Landing Page of Website![Pokimon](/Client/src/assets/Pokimon.PNG)
 
