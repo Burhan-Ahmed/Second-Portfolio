@@ -14,7 +14,7 @@ VS Code
 Next + Vite
 
 ## Directory Structure of Next.Js
-Watch this Video to Understand the Directory Struture of Next.Js[Click Here](https://www.youtube.com/watch?v=rxxIJTJ0wms)
+Watch this Video to Understand the Directory Struture of Next.Js [Click Here](https://www.youtube.com/watch?v=rxxIJTJ0wms)
 
 ## Points to Ponder
 1. if else does not exit in jsx, thus use ternary operator because jsx is not a programming language but a syntax extension for xml
