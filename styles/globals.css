@@ -28,6 +28,10 @@ body {
 
 }
 
+.paragraph {
+  width: 900px;
+}
+
 li:hover {
   color: crimson;
   cursor: pointer;
