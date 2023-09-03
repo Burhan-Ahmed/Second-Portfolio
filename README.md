@@ -17,7 +17,7 @@ Next + Vite
 Watch this Video to Understand the Directory Struture of Next.Js [Click Here](https://www.youtube.com/watch?v=rxxIJTJ0wms)
 
 ## Points to Ponder
-1. if else does not exit in jsx, thus use ternary operator because jsx is not a programming language but a syntax extension for xml
+1. In Next.Js _app.js is your root path and index.Js is the component while in react it is opposite.
 
 ### This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
