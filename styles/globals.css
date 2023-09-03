@@ -4,19 +4,39 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 80, 80, 80;
-  --background-end-rgb: 150, 150, 150;
+  --background-start-rgb: 150, 150, 150;
+  --background-end-rgb: 80, 80, 80;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to right bottom,
+  background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.logo:hover {
+  cursor: pointer;
+
 }
 
 li:hover {
   color: crimson;
   cursor: pointer;
-  transition: 300ms ease-in-out all;
+  transition: 200ms ease-in-out all;
+}
+
+button:hover {
+  color: black;
+  background: white;
+  cursor: pointer;
+  transition: 200ms ease-in-out all;
 }

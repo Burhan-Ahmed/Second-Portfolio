@@ -1,26 +1,37 @@
+import Link from "next/link"
 
 export default function Home() {
     return (
         <header className="w-max flex fixed">
-            <div class="m-5 ms-8 relative border-4 border-red-500 text-xl w-14 h-14 rounded-full flex justify-center items-center p-5">
+            <div className="logo m-5 ms-8 font-bold relative border-4 border-Bblue-400 text-xl w-14 h-14 rounded-full flex justify-center items-center p-5">
                 B
             </div>
             <nav className="my-auto">
-                <ul className="ms-12 flex py-auto text-xl space-x-20">
+                <ul className="ms-12 flex font-medium py-auto text-2xl space-x-20">
                     <li>
-                        Home
+                        <Link href="/">
+                            Home
+                        </Link >
                     </li>
                     <li>
-                        About
+                        <Link href="/About">
+                            About
+                        </Link >
                     </li>
                     <li>
-                        Projects
+                        <Link href="/Project">
+                            Projects
+                        </Link >
                     </li>
                     <li>
-                        Skills
+                        <Link href="/Skills">
+                            Skills
+                        </Link >
                     </li>
                     <li>
-                        Contact
+                        <Link href="/Contact">
+                            Contact
+                        </Link >
                     </li>
                 </ul>
             </nav>
