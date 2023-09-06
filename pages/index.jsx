@@ -20,7 +20,7 @@ export default function Home() {
           <p className="ps-1.5 pb-5">
             High Level Experience in Web Design and development Knowledge, producing quality work.
           </p>
-          <button className="py-2 px-3 bg-Bblue-700  rounded-lg font-semibold">
+          <button className="Info py-2 px-3 bg-Bblue-700  rounded-lg font-semibold">
             <Link href="/Components/About">
               More About Me
             </Link >

@@ -1,15 +1,15 @@
 import Image from 'next/image'
 
-export default function Logo({ Img }) {
+export default function ProgrammingLogo({ Img, dimension }) {
 
     return (
-        <>
+        <div className="w-auto my-auto">
             <Image
                 src={`/About/${Img}.png`}
                 alt={`${Img} Icon`}
-                width={50}
-                height={50}
+                width={dimension}
+                height={dimension}
             />
-        </>
+        </div>
     )
 }
