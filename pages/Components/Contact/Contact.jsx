@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import SocialLogo from './Logo';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
+
     return (
         <>
             <Head>
@@ -14,11 +16,22 @@ export default function Contact() {
                     <h5 className="text-lg mb-10">
                         Feel Free To Contact
                     </h5>
-                    <p className="mt-72 py-4 px-10 border text-lg backdrop-blur-2xl rounded-2xl">
-                        Hello! I am here to help you. <br />
-                        If you want to know something or you have any suggestion then please mail me. Thank You.
-                    </p>
-                    <div className="mt-10 rounded-lg inline-flex">
+                    <motion.div
+                        initial={{ opacity: 0, x: -100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        <p className="mt-72 py-4 px-10 border text-lg backdrop-blur-2xl rounded-2xl">
+                            Hello! I am here to help you. <br />
+                            If you want to know something or you have any suggestion then please mail me. Thank You.
+                        </p>
+                    </motion.div >
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, delay: 0.7 }}
+                        className="mt-10 rounded-lg inline-flex"
+                    >
                         <Image
                             src={"/mail.png"}
                             alt='Mail Icon'
@@ -30,7 +43,7 @@ export default function Contact() {
                         <button type='submit' className='Info px-4 rounded-e-lg text-black text-lg bg-Bblue-400'>
                             Copy
                         </button>
-                    </div>
+                    </motion.div >
                 </div>
                 <div className="p-20 items-center font-mono text-lg border rounded-3xl backdrop-blur-md">
                     <form action="GET" className="flex flex-col space-y-3 text-black">
@@ -45,6 +58,7 @@ export default function Contact() {
                         <a target='_blank' href="https://www.linkedin.com/in/muhammad-burhan-ahmed-86ab7b10a/">
                             <SocialLogo logoname={"fab fa-linkedin"} bgColor={"linkedin"} />
                         </a>
+
                         <a target='_blank' href="https://github.com/Burhan-Ahmed">
                             <SocialLogo logoname={"fab fa-github"} bgColor={"github"} />
                         </a>

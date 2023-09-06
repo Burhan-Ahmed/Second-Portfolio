@@ -5,10 +5,10 @@ Landing Page of Website![Landing Page of My Portfolio](/public/LandingPage.PNG)
 ## Tool
 VS Code
 ## Languages
-- HTML
+- Next
 * CSS3
 + Tailwind
-- Next
+- Framer Motion
 
 ## Project was Created Via
 Next + Vite

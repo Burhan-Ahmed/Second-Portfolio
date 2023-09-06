@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import Head from 'next/head';
+import Head from 'next/head'
 import Link from "next/link"
+import { motion } from 'framer-motion'
+
 
 
 export default function Home() {
@@ -10,7 +12,12 @@ export default function Home() {
         <title>Burhan Portfolio</title>
       </Head>
       <main className="flex justify-between items-center">
-        <div className="ms-40 space-y-3">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="ms-40 space-y-3"
+        >
           <h2 className="font-semibold text-8xl">
             Hi, I&apos;m Burhan
           </h2>
@@ -25,15 +32,20 @@ export default function Home() {
               More About Me
             </Link >
           </button>
-        </div>
-        <div className="me-40">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="me-40 overflow-hidden"
+        >
           <Image
             src="/Home/Me.jpeg"
             alt="My Picture"
             width={678}
             height={678}
           />
-        </div>
+        </motion.div>
       </main>
     </>
   )
