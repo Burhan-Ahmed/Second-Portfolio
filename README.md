@@ -1,6 +1,6 @@
 # My Portfolio
 Next.Js Project for Practice <br>
-Landing Page of Website![Landing Page of My Portfolio](/LandingPage.PNG)
+Landing Page of Website![Landing Page of My Portfolio](/public/LandingPage.PNG)
 
 ## Tool
 VS Code
