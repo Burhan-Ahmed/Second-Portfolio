@@ -1,6 +1,6 @@
 # My Portfolio
 Next.Js Project for Practice <br>
-Landing Page of Website![Pokimon](/Client/src/assets/Pokimon.PNG)
+Landing Page of Website![Landing Page of My Portfolio](/LandingPage.PNG)
 
 ## Tool
 VS Code
