@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import NavBar from '@/pages/Components/NavBar'
+import NavBar from './Components/NavBar';
 import Head from 'next/head';
 
 export default function App({ Component, pageProps }) {

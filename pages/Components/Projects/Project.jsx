@@ -1,35 +1,39 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
+import { useRef, useState } from 'react';
 import ArrowButton from './Button';
 import WebCard from './WebCard';
-import { useState } from 'react';
-import { motion } from 'framer-motion'
 
 export default function Project() {
-    const [scrollX, setScrollX] = useState(0)
+    const [scrollX, setScrollX] = useState(0);
+    const containerRef = useRef(null);
+
+    const getMaxScrollX = () => {
+        if (containerRef.current) {
+            const containerWidth = containerRef.current.scrollWidth;
+            const viewportWidth = containerRef.current.clientWidth;
+            return viewportWidth - containerWidth;
+        }
+        return 0;
+    };
 
     const moveLeft = () => {
-        console.log(scrollX)
-        if (scrollX < 0) {
-            setScrollX(scrollX + 975)
-        }
+        setScrollX(prevScrollX => Math.min(prevScrollX + 500, 0));
     };
 
     const moveRight = () => {
-
-        console.log(scrollX)
-        if (scrollX >= -(2 * 975)) {
-            setScrollX(scrollX - 975)
-        }
+        setScrollX(prevScrollX => Math.max(prevScrollX - 500, getMaxScrollX()));
     };
+
     return (
         <>
             <Head>
                 <title>Projects by Burhan</title>
             </Head>
-            <div className="m-48 text-5xl absolute">
+            <div className="mx-48 my-40 text-5xl absolute">
                 <h1>My Projects</h1>
             </div>
-            <div className="flex h-screen items-center justify-center overflow-hidden">
+            <div className="relative flex h-screen items-center justify-center overflow-hidden">
                 <button className="absolute left-5 z-10" onClick={moveLeft}>
                     <ArrowButton rotation={"-rotate-90"} />
                 </button>
@@ -38,10 +42,14 @@ export default function Project() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <div className="flex ps-10 mx-24 h-1 space-x-5 items-center duration-700 ease-in-out" style={{ transform: `translateX(${scrollX}px)` }}>
+                    <div
+                        className="flex p-44 mx-44 mt-14 space-x-20 items-center duration-700 ease-in-out"
+                        style={{ transform: `translateX(${scrollX}px)` }}
+                        ref={containerRef}
+                    >
                         <WebCard Title={"Star Bucks Website"} link={"Star-Bucks"} picture={"sample1"} />
                         <WebCard Title={"Gaming Website"} link={"League-of-Legends"} picture={"sample3"} />
-                        <WebCard Title={"Little Lemon Resurant Website"} link={"Little-Lemon"} picture={"sample2"} />
+                        <WebCard Title={"Little Lemon Restaurant Website"} link={"Little-Lemon"} picture={"sample2"} />
                         <WebCard Title={"Pokimon App"} link={"Pokimon-App"} picture={"sample4"} />
                     </div>
                 </motion.div>
@@ -50,5 +58,5 @@ export default function Project() {
                 </button>
             </div>
         </>
-    )
+    );
 }

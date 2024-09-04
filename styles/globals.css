@@ -34,15 +34,6 @@ body {
   width: 500px;
 }
 
-.Page {
-  background-image: url("/bgDark2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-
-}
-
 .profile {
   background-image: url("/About/burhan.jpg");
   background-size: cover;
