@@ -9,6 +9,8 @@ export default function Home() {
   const [letterIndex, setLetterIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(10);
+  const [isClient, setIsClient] = useState(false);
+
 
   const phrases = [
     "Novice MERN Stack Developer",
@@ -17,6 +19,11 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
     const handleTyping = () => {
       const fullPhrase = phrases[phraseIndex];
 
