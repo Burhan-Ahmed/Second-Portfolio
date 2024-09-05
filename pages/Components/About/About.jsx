@@ -23,17 +23,13 @@ import mongodbIcon from '@iconify-icons/logos/mongodb';
 export default function About() {
 
     const DownloadResume = () => {
-        // URL of the PDF file
-        const fileUrl = 'https://res.cloudinary.com/dpil2pczb/image/upload/Resume_zcj4zc.pdf'; // Replace with your actual file URL
-
-        // Create a temporary anchor element
+        const fileUrl = '/files/Resume.pdf';
         const link = document.createElement('a');
         link.href = fileUrl;
-        // window.open(url, '_blank');
-        link.download = 'Resume.pdf'; // Optional: specify the default filename
+        link.download = 'Resume.pdf';
         document.body.appendChild(link);
-        link.click(); // Trigger the download
-        document.body.removeChild(link); // Clean up
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (

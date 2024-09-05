@@ -1,12 +1,11 @@
 # My Portfolio
 Next.Js Project for Practice <br>
-Landing Page of Website![Landing Page of My Portfolio](/public/LandingPage.PNG)
+Landing Page of Website![Landing Page of My Portfolio](/public/Pages/UpdatedLandingPage.PNG)
 
 ## Tool
 VS Code
-## Languages
-- Next
-* CSS3
+## Languages and Frameworks
+- NextJs
 + Tailwind
 - Framer Motion
 
@@ -21,10 +20,3 @@ Watch this Video to Understand the Directory Struture of Next.Js [Click Here](ht
 2. flex is used to align the div on the canvas
 3. flex along with justify-center will make the content center along the x-axis
 4. flex along with items-center will make the content center along the y-axis
-
-### This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
