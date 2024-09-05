@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from "next/link";
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const [currentPhrase, setCurrentPhrase] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [letterIndex, setLetterIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(10);
+
+  const phrases = [
+    "Novice MERN Stack Developer",
+    "Computer Vision Enthusiast",
+    "Machine Learning Enthusiast",
+  ];
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        setCurrentPhrase(fullPhrase.substring(0, letterIndex - 1));
+        setLetterIndex(letterIndex - 1);
+        setTypingSpeed(10);
+      } else {
+        setCurrentPhrase(fullPhrase.substring(0, letterIndex + 1));
+        setLetterIndex(letterIndex + 1);
+      }
+
+      if (!isDeleting && letterIndex === fullPhrase.length) {
+        setTimeout(() => setIsDeleting(true), 1000); // Pause before deleting
+      } else if (isDeleting && letterIndex === 0) {
+        setIsDeleting(false);
+        setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length); // Move to next phrase
+      }
+    };
+
+    const typingTimeout = setTimeout(handleTyping, typingSpeed);
+
+    return () => clearTimeout(typingTimeout); // Clear timeout on cleanup
+  }, [letterIndex, isDeleting, typingSpeed, phrases, phraseIndex]);
 
   return (
     <>
@@ -21,7 +58,7 @@ export default function Home() {
             Hi, I&apos;m Burhan
           </h2>
           <h2 className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl">
-            Novice MERN Stack Developer
+            {currentPhrase}
           </h2>
           <p className="max-w-xs sm:max-w-sm md:max-w-md">
             High Level Experience in Web Design and development Knowledge, producing quality work.
