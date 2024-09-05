@@ -30,16 +30,16 @@ export default function Home() {
       }
 
       if (!isDeleting && letterIndex === fullPhrase.length) {
-        setTimeout(() => setIsDeleting(true), 1000); // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 1000);
       } else if (isDeleting && letterIndex === 0) {
         setIsDeleting(false);
-        setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length); // Move to next phrase
+        setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
       }
     };
 
     const typingTimeout = setTimeout(handleTyping, typingSpeed);
 
-    return () => clearTimeout(typingTimeout); // Clear timeout on cleanup
+    return () => clearTimeout(typingTimeout);
   }, [letterIndex, isDeleting, typingSpeed, phrases, phraseIndex]);
 
   return (
