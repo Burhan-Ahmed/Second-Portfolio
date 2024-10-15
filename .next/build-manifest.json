@@ -17,16 +17,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/Components/About/About.js"
     ],
-    "/Components/Contact/Contact": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Components/Contact/Contact.js"
-    ],
-    "/Components/Projects/Project": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Components/Projects/Project.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
