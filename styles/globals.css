@@ -18,6 +18,14 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* global.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll caused by overflows */
+}
+
 
 body {
   color: rgb(var(--foreground-rgb));
