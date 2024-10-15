@@ -33,9 +33,9 @@ export default function About() {
       <Head>
         <title>About Burhan</title>
       </Head>
-      <div className="flex flex-col lg:flex-row items-center lg:items-start mx-4 sm:mx-8 lg:mx-24 xl:mx-36 space-y-8 lg:space-y-0 lg:space-x-10 min-h-screen py-10">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start mx-4 sm:mx-8 lg:mx-24 xl:mx-36 space-y-8 lg:space-y-0 lg:space-x-10 min-h-screen py-10 mt-16"> {/* Maintain the margin for spacing */}
         {/* Profile Section */}
-        <div className="w-full lg:w-1/3 flex justify-center">
+        <div className="w-full lg:w-1/3 flex justify-center mt-44"> {/* Add items-center here */}
           <div className="profile w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full bg-gray-200 shadow-lg"></div>
         </div>
 
@@ -53,8 +53,8 @@ export default function About() {
             <h2 className="text-xl sm:text-2xl font-semibold border-b-4 border-white mb-4">
               Skills
             </h2>
-            <div className="customBox p-6 bg-white rounded-md shadow-md space-y-6">
-              {/** Frontend Skills **/}
+            <div className="customBox bg-slate-400 p-6 rounded-md shadow-md space-y-6">
+              {/* Frontend Skills */}
               <SkillRow title="FrontEnd">
                 <SkillIcons
                   icons={[
@@ -68,22 +68,22 @@ export default function About() {
                 />
               </SkillRow>
 
-              {/** Backend Skills **/}
+              {/* Backend Skills */}
               <SkillRow title="BackEnd">
                 <SkillIcons icons={[{ icon: nodeJsIcon }, { icon: expressIcon }]} />
               </SkillRow>
 
-              {/** Database Skills **/}
+              {/* Database Skills */}
               <SkillRow title="DataBase">
                 <SkillIcons icons={[{ icon: mongodbIcon }]} />
               </SkillRow>
 
-              {/** UI Design Skills **/}
+              {/* UI Design Skills */}
               <SkillRow title="UI Design">
                 <ProgrammingLogo Img={"Figma"} dimension={60} />
               </SkillRow>
 
-              {/** Programming Languages **/}
+              {/* Programming Languages */}
               <SkillRow title="Programming Languages and Libraries">
                 <SkillIcons
                   icons={[
@@ -97,7 +97,7 @@ export default function About() {
                 />
               </SkillRow>
 
-              {/** Version Control **/}
+              {/* Version Control */}
               <SkillRow title="Version Control">
                 <SkillIcons icons={[{ icon: gitIcon }, { icon: githubIcon }]} />
               </SkillRow>
@@ -121,7 +121,7 @@ export default function About() {
 function SkillRow({ title, children }) {
   return (
     <div className="flex flex-col sm:flex-row justify-between mb-6">
-      <p className="font-medium mb-2 sm:mb-0">{title}</p>
+      <p className="font-medium mb-2 sm:mb-0 text-black">{title}</p>
       <div className="flex gap-4 flex-wrap">{children}</div>
     </div>
   );
