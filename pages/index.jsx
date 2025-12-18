@@ -1,114 +1,204 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import Link from "next/link";
 import { motion } from 'framer-motion';
+import SocialLogo from './Components/logo/Logo';
 
 export default function Home() {
-  const [currentPhrase, setCurrentPhrase] = useState('');
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [letterIndex, setLetterIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(10);
-  const [isClient, setIsClient] = useState(false);
+  const interests = ["Computer Vision", "MLOps", "Deep Learning", "Edge Computing"];
+  const fullName = "Muhammad Burhan Ahmed";
+  const email = "burhan.ahmed60090@gmail.com";
+  const [copied, setCopied] = useState(false);
 
-
-  const phrases = [
-    "Novice MERN Stack Developer",
-    "Computer Vision Enthusiast",
-    "Machine Learning Enthusiast",
+  const experienceList = [
+    {
+      role: "Junior Data Scientist",
+      company: "OIRRC ",
+      period: "November 2025 - Present",
+      description: "Contributing to data-driven R&D projects in healthcare, focusing on ocular imaging. Built and evaluated deep learning models and deployed services to support various tools and applications within the institute."
+    },
+    {
+      role: "Lab Engineer",
+      company: "Air University ",
+      period: "August 2025 - Present",
+      description: "Teaching and assisting students in lab sessions, supporting course experiments and hands-on projects."
+    },
+    {
+      role: "AI Intern",
+      company: "Jantah Tech ",
+      period: "July 2023 - September 2023",
+      description: "Developed chatbots using Flask and SQLite for local datasets, enabling features such as appointment booking and patient query handling. Gained practical experience with Cloudinary, Git for version control, and Postman for API testing."
+    },
+    {
+      role: "Computer Vision Engineer & GenAI Intern",
+      company: "Botmer International ",
+      period: "April 2025 - June 2025",
+      description: "Worked on an AI-powered application for visual scene understanding in industrial safety environments. Managed the end-to-end DL pipeline for real-time inference. Deployed models using FastAPI. Leveraged tools including Ultralytics YOLO, Roboflow, TensorBoard and OpenCV."
+    },
   ];
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const researchWorkList = [
+    {
+      title: "SWiM3: Solid Waste Mapping Dataset",
+      publishedAt: "5th International IEEE Conference on Digital Futures and Transformative Technologies",
+      status: "Submitted/Done",
+      description: "Developed a solid waste dataset containing 6,429 images and 25,234 annotated instances across 3 categories."
+    },
+    {
+      title: "An Explainable and Edge-Deployable Deep Learning Framework for Smart Waste Classification",
+      publishedAt: "Journal",
+      status: "In Progress",
+      description: "Designed and deployed a deep learning-based smart waste classification system on a Raspberry Pi, enabling edge inference. Conducted a comparative study of state-of-the-art object detection models to identify the most effective architecture for real-time performance. Integrated explainable AI techniques to interpret model predictions."
+    },
+  ];
 
-  useEffect(() => {
-    if (!isClient) return;
-    const handleTyping = () => {
-      const fullPhrase = phrases[phraseIndex];
-
-      if (isDeleting) {
-        setCurrentPhrase(fullPhrase.substring(0, letterIndex - 1));
-        setLetterIndex(letterIndex - 1);
-        setTypingSpeed(10);
-      } else {
-        setCurrentPhrase(fullPhrase.substring(0, letterIndex + 1));
-        setLetterIndex(letterIndex + 1);
-      }
-
-      if (!isDeleting && letterIndex === fullPhrase.length) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && letterIndex === 0) {
-        setIsDeleting(false);
-        setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-      }
-    };
-
-    const typingTimeout = setTimeout(handleTyping, typingSpeed);
-
-    return () => clearTimeout(typingTimeout);
-  }, [letterIndex, isDeleting, typingSpeed, phrases, phraseIndex]);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <>
       <Head>
         <title>Burhan Portfolio</title>
       </Head>
-      <main className="flex flex-col md:flex-row justify-center items-center min-h-screen px-4 md:px-20 space-y-10 md:space-y-0">
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-10 md:mb-0 md:mr-10 space-y-3 text-center md:text-left"
-        >
-          <h2 className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-            Hi, I&apos;m Burhan
-          </h2>
-          <h2 className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl">
-            {currentPhrase}
-          </h2>
-          <p className="max-w-xs sm:max-w-sm md:max-w-md">
-            High Level Experience in Web Design and development Knowledge, producing quality work.
-          </p>
-          <button className="py-2 px-4 bg-blue-700 rounded-lg font-semibold text-white hover:bg-blue-800 transition-all">
-            <Link href="/Components/About/About.jsx">
-              More About Me
-            </Link>
-          </button>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="flex-shrink-0"
-        >
-          <div
-            className="relative w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] z-[10]"
+      <main className="flex flex-col items-center max-w-7xl mx-auto px-6 md:px-12 gap-10 pb-10 pt-52">
+
+        {/* Hero Section */}
+        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-20">
+          {/* About Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            className="md:w-1/2 space-y-6 text-center md:text-left"
           >
-            <svg viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <mask id="blob-mask" x="0" y="0" width="170" height="170">
-                  <path
-                    fill='white'
-                    d="M40,-67.3C52.6,-62,64,-52.8,73.3,-40.9C82.6,-29.1,89.6,-14.5,91.4,1C93.2,16.6,89.8,33.2,80.8,45.6C71.8,58,57.4,66.2,43,71C28.6,75.8,14.3,77.3,0.5,76.4C-13.3,75.5,-26.6,72.3,-39.3,66.5C-52,60.7,-64.1,52.4,-74.1,40.9C-84,29.4,-91.8,14.7,-91,0.4C-90.3,-13.8,-81,-27.6,-70.7,-38.6C-60.5,-49.6,-49.3,-57.8,-37.4,-63.5C-25.4,-69.1,-12.7,-72.2,0.5,-73.1C13.7,-73.9,27.4,-72.6,40,-67.3Z"
-                    transform="translate(100 100)"
-                  />
-                </mask>
-              </defs>
-              <image
-                href="https://res.cloudinary.com/dpil2pczb/image/upload/v1725479658/IMG_4617_prhzhh.jpg"
-                x="0"
-                y="0"
-                width="200"
-                height="200"
-                mask="url(#blob-mask)"
-              />
-            </svg>
-          </div>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">About Me</h1>
+            <p className="text-base sm:text-lg leading-relaxed">
+              A <span className="text-Bblue-500 font-semibold">Computer Engineering</span> graduate from
+              <span className="text-Bblue-500 font-semibold"> Air University, Islamabad</span>,
+              with expertise in Computer Vision and API Development.
+              Currently exploring deployment and AI to drive intelligent solutions.
+            </p>
+
+            {/* Full Name & Email with Copy */}
+            <div className="mt-4 flex items-center space-x-2 text-gray-600 font-medium">
+              <span className='border-b'>{email}</span>
+              <button
+                onClick={handleCopyEmail}
+                className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-all text-sm"
+              >
+                {copied ? "Copied!" : "Copy"}
+              </button>
+            </div>
+
+            {/* Interests */}
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-3">My Interests</h3>
+              <div className="flex flex-wrap gap-3">
+                {interests.map((interest, idx) => (
+                  <span
+                    key={idx}
+                    className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Portrait Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ y: -5, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 120, damping: 10, duration: 0.6 }}
+            className="md:w-1/2 max-w-md bg-white rounded-2xl p-10 flex flex-col items-center cursor-pointer shadow-[inset_0_12px_12px_rgba(0,0,0,0.15)]"
+          >
+            <motion.div
+              className="w-56 h-56 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden border-4 border-blue-500"
+              whileHover={{ rotate: 3, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 120, damping: 10 }}
+            >
+              <img src="./Home/me.png" alt="Burhan" className="w-full h-full object-cover" />
+            </motion.div>
+
+            <p className="text-black font-semibold mb-4 text-center">{fullName}</p>
+            <div className="w-full border-t border-gray-300 my-4"></div>
+
+            <div className="flex space-x-6">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/muhammad-burhan-ahmed-86ab7b10a/">
+                <SocialLogo logoname="fab fa-linkedin" bgColor="linkedin" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/Burhan-Ahmed">
+                <SocialLogo logoname="fab fa-github" bgColor="github" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/muhammadburhanahmed">
+                <SocialLogo logoname="fab fa-kaggle" bgColor="black" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="w-full border-t border-gray-300 my-4"></div>
+
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-3/4 space-y-6 text-left"
+        >
+          <h2 className="text-3xl font-bold mb-4">Experience</h2>
+          {experienceList.map((exp, idx) => (
+            <div key={idx} className="bg-gray-50 p-4 text-black rounded-lg mb-4 shadow-[inset_0_3px_6px_rgba(0,0,0,0.12)]">
+              <h3 className="text-xl font-semibold">{exp.role}</h3>
+              <p className="">
+                <span className='text-Bblue-500 font-semibold'>
+                  {exp.company}
+                </span>
+                | {exp.period}</p>
+              <p className="text-gray-700 mt-2">{exp.description}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Research Work Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-3/4 sppace-y-6 text-left"
+        >
+          <h2 className="text-3xl font-bold mb-4">Research Work</h2>
+          {researchWorkList.map((work, idx) => {
+            const statusColor =
+              work.status.toLowerCase().includes("done")
+                ? "text-green-600"
+                : work.status.toLowerCase().includes("progress")
+                  ? "text-amber-600"
+                  : "text-gray-500";
+            return (
+              <div
+                key={idx}
+                className="bg-gray-50 ps-4 py-4 text-black rounded-lg shadow-[inset_0_3px_6px_rgba(0,0,0,0.12)] mb-4"
+              >
+                <h3 className="text-xl font-semibold mb-1">Paper Title: {work.title}</h3>
+                <p className="text-gray-500 text-sm mb-1">
+                  <span className="font-medium">Published At:</span> {work.publishedAt} |{" "}
+                  <span className="font-medium">Status:</span>{" "}
+                  <span className={statusColor}>{work.status}</span>
+                </p>
+                <p className="text-gray-700 mt-2">{work.description}</p>
+              </div>
+            );
+          })}
 
 
         </motion.div>
+
       </main>
     </>
   );
