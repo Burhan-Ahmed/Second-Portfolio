@@ -13,7 +13,7 @@ export default function Home() {
     {
       role: "Junior Data Scientist",
       company: "OIRRC ",
-      period: "November 2025 - Present",
+      period: "November 2025 - February 2026",
       description: "Contributing to data-driven R&D projects in healthcare, focusing on ocular imaging. Built and evaluated deep learning models and deployed services to support various tools and applications within the institute."
     },
     {
