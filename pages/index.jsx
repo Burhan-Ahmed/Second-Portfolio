@@ -17,12 +17,6 @@ export default function Home() {
       description: "Contributing to data-driven R&D projects in healthcare, focusing on ocular imaging. Built and evaluated deep learning models and deployed services to support various tools and applications within the institute."
     },
     {
-      role: "Lab Engineer",
-      company: "Air University ",
-      period: "August 2025 - Present",
-      description: "Teaching and assisting students in lab sessions, supporting course experiments and hands-on projects."
-    },
-    {
       role: "AI Intern",
       company: "Jantah Tech ",
       period: "July 2023 - September 2023",
