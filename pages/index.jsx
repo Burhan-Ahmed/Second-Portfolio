@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import SocialLogo from './Components/logo/Logo';
 
 export default function Home() {
-  const interests = ["Computer Vision", "MLOps", "Deep Learning", "Edge Computing"];
+  const interests = ["Machine Learning", "Data Engineering"];
   const fullName = "Muhammad Burhan Ahmed";
   const email = "burhan.ahmed60090@gmail.com";
   const [copied, setCopied] = useState(false);
